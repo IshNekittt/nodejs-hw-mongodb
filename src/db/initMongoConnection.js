@@ -12,6 +12,7 @@ export async function initMongoConnection() {
     await mongoose.connect(
       `mongodb+srv://${user}:${password}@${url}/${db}?retryWrites=true&w=majority&appName=Cluster0`,
     );
+    console.log('Database pre-connected');
   } catch (e) {
     console.log('Error while setting up mongo connection', e);
   }
