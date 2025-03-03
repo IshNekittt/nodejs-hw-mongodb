@@ -2,6 +2,7 @@ import createHttpError from 'http-errors';
 import {
   getAllContacts,
   getContactById,
+  patchContact,
   postContact,
 } from '../services/contacts.js';
 
@@ -37,5 +38,18 @@ export const postContactController = async (req, res) => {
     status: 201,
     message: 'Successfully created a contact!',
     data: contact,
+  });
+};
+
+export const patchContactController = async (req, res) => {
+  const { contactId } = req.params;
+  const result = await patchContact(contactId, req.body);
+
+  if (!result) throw createHttpError(404, 'Contact not found');
+
+  res.status(200).json({
+    status: 200,
+    message: 'Successfully patched a contact!',
+    data: result.contact,
   });
 };
