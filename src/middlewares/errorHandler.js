@@ -10,11 +10,18 @@ export const errorHandler = (err, _req, res, _next) => {
   }
 
   if (err instanceof HttpError) {
-    res.status(err.status).json({
+    const responce = {
       status: err.statusCode,
       message: err.name,
       data: err.message,
-    });
+    };
+
+    if (err.page && err.totalPages) {
+      responce.page = err.page;
+      responce.totalPages = err.totalPages;
+    }
+
+    res.status(err.status).json(responce);
     return;
   }
 
