@@ -7,8 +7,12 @@ import {
   postContact,
 } from '../services/contacts.js';
 
-export const getContactsController = async (_, res) => {
-  const data = await getAllContacts();
+import { parsePaginationParams } from '../utils/parsePaginationParams.js';
+
+export const getContactsController = async (req, res) => {
+  const { page, perPage } = parsePaginationParams(req);
+
+  const data = await getAllContacts(page, perPage);
 
   res.status(200).json({
     status: 200,
