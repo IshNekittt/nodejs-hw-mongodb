@@ -13,3 +13,5 @@ export const SORT_ORDER = {
   ASC: 'asc',
   DECS: 'desc',
 };
+
+export const CONTACT_TYPES = ['work', 'home', 'personal'];
