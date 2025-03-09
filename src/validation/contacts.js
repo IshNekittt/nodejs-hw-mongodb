@@ -35,10 +35,8 @@ export const patchContactSchema = Joi.object({
     'string.min': 'Phone number should have at least {#limit} characters',
     'string.max': 'Phone number should have at most {#limit} characters',
   }),
-  email: Joi.string().min(3).max(20).email().messages({
+  email: Joi.string().email().messages({
     'string.base': 'Email should be a string',
-    'string.min': 'Email should have at least {#limit} characters',
-    'string.max': 'Email should have at most {#limit} characters',
     'string.email': 'Not a valid email {#value}.',
   }),
   isFavourite: Joi.boolean(),
