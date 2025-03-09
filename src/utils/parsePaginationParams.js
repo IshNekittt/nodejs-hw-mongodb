@@ -3,6 +3,8 @@ const parseNumber = (value, defaultValue) => {
 
   const parsedValue = parseInt(value);
   if (Number.isNaN(parsedValue)) return defaultValue;
+  if (parsedValue < 1) return defaultValue;
+
   return parsedValue;
 };
 
