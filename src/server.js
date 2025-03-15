@@ -5,7 +5,7 @@ import 'dotenv/config';
 
 import { getEnvVar } from './utils/getEnvVar.js';
 
-import contactsRouter from './routers/contacts.js';
+import indexRouter from './routers/index.js';
 
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
@@ -26,7 +26,7 @@ export function setupServer() {
     }),
   );
 
-  app.use(contactsRouter);
+  app.use(indexRouter);
 
   app.use('*', notFoundHandler);
 
