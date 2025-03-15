@@ -67,7 +67,6 @@ export const postContactController = async (req, res) => {
 export const patchContactController = async (req, res) => {
   const { contactId } = req.params;
   const userId = req.user._id;
-  console.log(userId);
 
   const result = await patchContact(contactId, req.body, userId);
 
