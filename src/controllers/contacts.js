@@ -55,7 +55,8 @@ export const getContactByIdController = async (req, res) => {
 };
 
 export const postContactController = async (req, res) => {
-  const contact = await postContact(req.body);
+  const userId = req.user._id;
+  const contact = await postContact(req.body, userId);
 
   res.status(201).json({
     status: 201,
