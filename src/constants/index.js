@@ -1,6 +1,10 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+const pathToOneLevelDir = (dir) => {
+  return path.join(path.dirname(fileURLToPath(import.meta.url)), '..', dir);
+};
+
 export const SORT_VALUES = [
   '_id',
   'name',
@@ -31,8 +35,12 @@ export const SMTP = {
   SMTP_FROM: 'SMTP_FROM',
 };
 
-export const TEMPLATES_DIR = path.join(
-  path.dirname(fileURLToPath(import.meta.url)),
-  '..',
-  'templates',
-);
+export const TEMPLATES_DIR = pathToOneLevelDir('templates');
+export const TEMP_UPLOADS_DIR = pathToOneLevelDir('temp');
+export const UPLOADS_DIR = pathToOneLevelDir('uploads');
+
+export const CLOUDINARY = {
+  CLOUD_NAME: 'CLOUD_NAME',
+  API_KEY: 'API_KEY',
+  API_SECRET: 'API_SECRET',
+};
