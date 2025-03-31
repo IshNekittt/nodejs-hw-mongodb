@@ -16,4 +16,4 @@ content:
           example: NotFoundError
         data:
           type: string
-          example: 'No contacts found for your request'
+          example: 'Contact not found'

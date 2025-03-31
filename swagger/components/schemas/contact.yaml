@@ -25,7 +25,7 @@ properties:
     type: string
     example: 'email@example.com'
   isFavourite:
-    description: 'Is contact favourite'
+    description: 'Whether is contact favourite'
     type: boolean
     example: false
   contactType:
