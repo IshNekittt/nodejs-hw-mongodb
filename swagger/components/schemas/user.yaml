@@ -1,3 +1,4 @@
+title: User
 type: object
 required:
   - _id
@@ -20,6 +21,7 @@ properties:
     type: string
     example: 'email@example.com'
   password:
-    description: "User's password"
+    description: "Hashed user's password"
     type: string
-    example: '12345'
+    example: '$2b$10$.XQYrEisAl.2xW9Bp1j65uPJvIXxM48zGRR5MmrnsaWjmRhGHR39S'
+    writeOnly: true

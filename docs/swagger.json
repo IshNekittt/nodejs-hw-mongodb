@@ -173,9 +173,6 @@
           },
           "401": {
             "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
           }
         }
       },
@@ -199,8 +196,7 @@
                 "required": [
                   "name",
                   "phoneNumber",
-                  "contactType",
-                  "userId"
+                  "contactType"
                 ],
                 "properties": {
                   "name": {
@@ -237,11 +233,6 @@
                     "description": "Link to contact's photo",
                     "type": "string",
                     "format": "binary"
-                  },
-                  "userId": {
-                    "description": "Contact's user id",
-                    "type": "string",
-                    "example": "65e4decdd286b30065d54af9"
                   }
                 }
               }
@@ -339,9 +330,6 @@
           },
           "401": {
             "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
           }
         }
       },
@@ -372,9 +360,6 @@
             "multipart/form-data": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "userId"
-                ],
                 "properties": {
                   "name": {
                     "description": "Contact's name",
@@ -410,11 +395,6 @@
                     "description": "Link to contact's photo",
                     "type": "string",
                     "format": "binary"
-                  },
-                  "userId": {
-                    "description": "Contact's user id",
-                    "type": "string",
-                    "example": "65e4decdd286b30065d54af9"
                   }
                 }
               }
@@ -559,30 +539,7 @@
                     },
                     "data": {
                       "type": "object",
-                      "required": [
-                        "_id",
-                        "name",
-                        "email"
-                      ],
-                      "properties": {
-                        "_id": {
-                          "description": "User's id",
-                          "type": "string",
-                          "example": "65e4decdd286b30065d54af9"
-                        },
-                        "name": {
-                          "description": "User's name",
-                          "type": "string",
-                          "example": "John Doe",
-                          "minLength": 3,
-                          "maxLength": 20
-                        },
-                        "email": {
-                          "description": "User's email",
-                          "type": "string",
-                          "example": "email@example.com"
-                        }
-                      }
+                      "$ref": "#/components/schemas/user"
                     }
                   }
                 }
@@ -905,15 +862,14 @@
     },
     "schemas": {
       "contact": {
+        "title": "Contact",
         "type": "object",
         "required": [
           "_id",
           "name",
           "phoneNumber",
-          "email",
-          "isFavourite",
           "contactType",
-          "photo"
+          "userId"
         ],
         "properties": {
           "_id": {
@@ -960,6 +916,41 @@
             "description": "Link to contact's photo",
             "type": "string",
             "example": "https://res.cloudinary.com/dbdkp5e0b/image/upload/v1742749762/fvqgb9z1tw94ggpqcojh.png"
+          }
+        }
+      },
+      "user": {
+        "title": "User",
+        "type": "object",
+        "required": [
+          "_id",
+          "name",
+          "email",
+          "password"
+        ],
+        "properties": {
+          "_id": {
+            "description": "User's id",
+            "type": "string",
+            "example": "65e4decdd286b30065d54af9"
+          },
+          "name": {
+            "description": "User's name",
+            "type": "string",
+            "example": "John Doe",
+            "minLength": 3,
+            "maxLength": 20
+          },
+          "email": {
+            "description": "User's email",
+            "type": "string",
+            "example": "email@example.com"
+          },
+          "password": {
+            "description": "Hashed user's password",
+            "type": "string",
+            "example": "$2b$10$.XQYrEisAl.2xW9Bp1j65uPJvIXxM48zGRR5MmrnsaWjmRhGHR39S",
+            "writeOnly": true
           }
         }
       }
