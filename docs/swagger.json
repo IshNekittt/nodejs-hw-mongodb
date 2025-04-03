@@ -963,7 +963,7 @@
     },
     "responses": {
       "400": {
-        "description": "Unauthorized error",
+        "description": "Bad request",
         "content": {
           "application/json": {
             "schema": {

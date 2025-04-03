@@ -1,4 +1,4 @@
-description: Unauthorized error
+description: Bad request
 content:
   application/json:
     schema:
